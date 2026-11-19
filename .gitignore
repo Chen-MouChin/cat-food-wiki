@@ -1,0 +1,5 @@
+# 原文有著作權，只放本機；照 data/sources.json 的網址可重新下載
+raw/
+__pycache__/
+*.pyc
+runs/last_lint.json
