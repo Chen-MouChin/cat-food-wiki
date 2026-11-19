@@ -6,7 +6,7 @@
   3. 每一點的數字，都要出現在它引用的主張的中文裡（不可以自己算新數字）。
   4. 每頁最多 4 點、每點最多 60 字（不算編號）；標題要有。
   5. 用語：不用「研究顯示」「專家建議」「治療」「毛孩」這類字。
-  6. 封面（layout: title）可以沒有主張。
+  6. 封面（layout: title）、目錄（layout: agenda）可以沒有主張，但目錄只能列後面各頁的主題。
 
 用法：python scripts/check_slides.py   有 FAIL 回傳 1
 """
@@ -60,7 +60,7 @@ def run():
         where = f"第 {i} 頁「{s['title'][:14]}」"
         if i not in outline:
             fails.append(f"{where} 不在 outline.md（先查 Wiki 寫大綱，再寫簡報）")
-        if s["layout"] == "title":
+        if s["layout"] in ("title", "agenda"):   # 封面、目錄沒有新事實
             continue
         slide_refs = {r for p in s["points"] for r in REF.findall(p)}
         allowed_t = {float(n) for r in slide_refs if r in claims for n in numbers(claims[r]["zh"])}
@@ -90,6 +90,16 @@ def run():
             for b in BANNED:
                 if b in text:
                     fails.append(f"{where} 第 {j} 點用了「{b}」")
+    # 目錄的每一項，都要對得到後面某一頁的標題關鍵字（避免目錄偷偷加內容）
+    titles = " ".join(x["title"] for x in slides)
+    for s in slides:
+        if s["layout"] == "agenda":
+            for p in s["points"]:
+                topics = [t for t in re.split(r"[：、，]", p)[1:] if t.strip()]
+                for t in topics:
+                    key = t.strip()[:2]
+                    if key and key not in titles.replace(s["title"], ""):
+                        fails.append(f"目錄「{p[:20]}」的「{t.strip()}」對不到任何一頁的標題")
     for line in fails:
         print("FAIL", line)
     print(f"簡報 {len(slides)} 頁，引用 {len(used)} 條主張（Wiki 共 {len(claims)} 條）；FAIL {len(fails)}")
