@@ -1,0 +1,69 @@
+FAIL wiki/index.md 沒有列出 sources/AAFP-NUTRITION-2018.md
+FAIL wiki/index.md 沒有列出 sources/AAHA-NUTRITION-2021.md
+FAIL wiki/index.md 沒有列出 sources/DELGADO-2020-FEEDING-WELLBEING.md
+FAIL wiki/index.md 沒有列出 sources/FDA-PET-FOOD-LABELS-GENERAL.md
+FAIL wiki/index.md 沒有列出 sources/FEDIAF-CARBOHYDRATES-FACTSHEET.md
+FAIL wiki/index.md 沒有列出 sources/FEDIAF-NUTRITION-GUIDELINES-2025.md
+FAIL wiki/index.md 沒有列出 sources/WSAVA-CALORIE-CAT-2020.md
+FAIL wiki/index.md 沒有列出 sources/WSAVA-NUTRITION-2011.md
+FAIL wiki/index.md 沒有列出 sources/WSAVA-SELECTING-PET-FOODS-2021.md
+WARN C-BEH-02 沒有任何主題頁用到（孤兒主張）
+WARN C-TRT-01 沒有任何主題頁用到（孤兒主張）
+WARN C-FEED-02 沒有任何主題頁用到（孤兒主張）
+WARN C-FEED-01 沒有任何主題頁用到（孤兒主張）
+WARN C-FEED-05 沒有任何主題頁用到（孤兒主張）
+WARN C-KCAL-06 沒有任何主題頁用到（孤兒主張）
+WARN C-BCS-02 沒有任何主題頁用到（孤兒主張）
+WARN C-BCS-06 沒有任何主題頁用到（孤兒主張）
+WARN C-FEED-03 沒有任何主題頁用到（孤兒主張）
+WARN C-FEED-04 沒有任何主題頁用到（孤兒主張）
+WARN C-BCS-03 沒有任何主題頁用到（孤兒主張）
+WARN C-FEED-06 沒有任何主題頁用到（孤兒主張）
+WARN C-ADQ-07 沒有任何主題頁用到（孤兒主張）
+WARN C-TRT-02 沒有任何主題頁用到（孤兒主張）
+WARN C-FEED-07 沒有任何主題頁用到（孤兒主張）
+WARN C-FEED-08 沒有任何主題頁用到（孤兒主張）
+WARN C-LBL-01 沒有任何主題頁用到（孤兒主張）
+WARN C-LBL-02 沒有任何主題頁用到（孤兒主張）
+WARN C-LBL-03 沒有任何主題頁用到（孤兒主張）
+WARN C-LBL-04 沒有任何主題頁用到（孤兒主張）
+WARN C-LBL-06 沒有任何主題頁用到（孤兒主張）
+WARN C-DM-01 沒有任何主題頁用到（孤兒主張）
+WARN C-DM-02 沒有任何主題頁用到（孤兒主張）
+WARN C-DM-03 沒有任何主題頁用到（孤兒主張）
+WARN C-DM-06 沒有任何主題頁用到（孤兒主張）
+WARN C-DM-04 沒有任何主題頁用到（孤兒主張）
+WARN C-ADQ-01 沒有任何主題頁用到（孤兒主張）
+WARN C-ADQ-08 沒有任何主題頁用到（孤兒主張）
+WARN C-ADQ-09 沒有任何主題頁用到（孤兒主張）
+WARN C-ADQ-02 沒有任何主題頁用到（孤兒主張）
+WARN C-ADQ-03 沒有任何主題頁用到（孤兒主張）
+WARN C-CARB-07 沒有任何主題頁用到（孤兒主張）
+WARN C-CARB-08 沒有任何主題頁用到（孤兒主張）
+WARN C-CARB-01 沒有任何主題頁用到（孤兒主張）
+WARN C-CARB-02 沒有任何主題頁用到（孤兒主張）
+WARN C-CARB-03 沒有任何主題頁用到（孤兒主張）
+WARN C-BEH-01 沒有任何主題頁用到（孤兒主張）
+WARN C-CARB-04 沒有任何主題頁用到（孤兒主張）
+WARN C-CARB-05 沒有任何主題頁用到（孤兒主張）
+WARN C-CARB-06 沒有任何主題頁用到（孤兒主張）
+WARN C-DM-05 沒有任何主題頁用到（孤兒主張）
+WARN C-ADQ-05 沒有任何主題頁用到（孤兒主張）
+WARN C-ADQ-06 沒有任何主題頁用到（孤兒主張）
+WARN C-KCAL-02 沒有任何主題頁用到（孤兒主張）
+WARN C-KCAL-07 沒有任何主題頁用到（孤兒主張）
+WARN C-KCAL-03 沒有任何主題頁用到（孤兒主張）
+WARN C-BCS-01 沒有任何主題頁用到（孤兒主張）
+WARN C-KCAL-04 沒有任何主題頁用到（孤兒主張）
+WARN C-KCAL-05 沒有任何主題頁用到（孤兒主張）
+WARN C-BCS-04 沒有任何主題頁用到（孤兒主張）
+WARN C-BCS-05 沒有任何主題頁用到（孤兒主張）
+WARN C-TRT-03 沒有任何主題頁用到（孤兒主張）
+WARN C-LBL-05 沒有任何主題頁用到（孤兒主張）
+WARN C-ADQ-04 沒有任何主題頁用到（孤兒主張）
+WARN C-KCAL-01 沒有任何主題頁用到（孤兒主張）
+WARN C-BRD-01 沒有任何主題頁用到（孤兒主張）
+WARN C-BRD-02 沒有任何主題頁用到（孤兒主張）
+WARN C-BRD-03 沒有任何主題頁用到（孤兒主張）
+WARN C-BRD-04 沒有任何主題頁用到（孤兒主張）
+主張 59 條，原句比對成功 59 條；FAIL 9，WARN 59

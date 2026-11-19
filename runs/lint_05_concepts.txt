@@ -1,0 +1,2 @@
+FAIL wiki/concepts/complete-and-balanced.md:8 這句沒有主張編號（主題頁不能新增事實）：美國用「完整均衡（complete and balanced）」這個說法。
+主張 59 條，原句比對成功 59 條；FAIL 17，WARN 0
