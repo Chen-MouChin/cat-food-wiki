@@ -1,0 +1,75 @@
+{
+  "_說明": "出處清單。key 和貓健康站 citations.json 相同；raw/<key>.pdf（或 .html）照 url 下載。commercial_use 照貓健康站的審核結果：facts-only＝可以引用事實、不可轉載原文。",
+  "FEDIAF-NUTRITION-GUIDELINES-2025": {
+    "short": "FEDIAF 2025",
+    "title": "Nutritional Guidelines for Complete and Complementary Pet Food for Cats and Dogs (September 2025)",
+    "authors": "FEDIAF（European Pet Food Industry Federation）",
+    "year": 2025, "type": "產業營養指引", "pages": 98,
+    "url": "https://europeanpetfood.org/wp-content/uploads/2025/09/FEDIAF-Nutritional-Guidelines_2025-ONLINE.pdf",
+    "commercial_use": "facts-only"
+  },
+  "FEDIAF-CARBOHYDRATES-FACTSHEET": {
+    "short": "FEDIAF 碳水",
+    "title": "Carbohydrates in Dog and Cat Food (FEDIAF Scientific Advisory Board Expert Review)",
+    "authors": "FEDIAF Scientific Advisory Board",
+    "year": 2019, "type": "專家審查", "pages": 12,
+    "url": "https://europeanpetfood.org/wp-content/uploads/2022/03/FEDIAF_Carbohydrates-OnlineK.pdf",
+    "commercial_use": "facts-only"
+  },
+  "FDA-PET-FOOD-LABELS-GENERAL": {
+    "short": "FDA 標籤",
+    "title": "Pet Food Labels - General",
+    "authors": "U.S. Food and Drug Administration",
+    "year": 2019, "type": "政府衛教網頁（存檔）", "pages": 1,
+    "url": "https://web.archive.org/web/20190423023009/https://www.fda.gov/AnimalVeterinary/ResourcesforYou/AnimalHealthLiteracy/ucm047113.htm",
+    "commercial_use": "ok"
+  },
+  "WSAVA-SELECTING-PET-FOODS-2021": {
+    "short": "WSAVA 選食物",
+    "title": "WSAVA Global Nutrition Committee: Guidelines on Selecting Pet Foods",
+    "authors": "WSAVA Global Nutrition Committee",
+    "year": 2021, "type": "獸醫組織指引", "pages": 1,
+    "url": "https://wsava.org/wp-content/uploads/2021/04/Selecting-a-pet-food-for-your-pet-updated-2021_WSAVA-Global-Nutrition-Toolkit.pdf",
+    "commercial_use": "facts-only"
+  },
+  "WSAVA-CALORIE-CAT-2020": {
+    "short": "WSAVA 熱量",
+    "title": "Calorie Needs for an Average Healthy Adult Cat in Ideal Body Condition",
+    "authors": "WSAVA Global Nutrition Committee",
+    "year": 2020, "type": "獸醫組織工具表", "pages": 1,
+    "url": "https://wsava.org/wp-content/uploads/2020/07/Calorie-Needs-for-Healthy-Adult-Cats-updated-July-2020.pdf",
+    "commercial_use": "facts-only"
+  },
+  "WSAVA-NUTRITION-2011": {
+    "short": "WSAVA 2011",
+    "title": "WSAVA Nutritional Assessment Guidelines",
+    "authors": "Freeman L, Becvarova I, Cave N, et al.",
+    "year": 2011, "type": "獸醫組織指引", "pages": 12,
+    "url": "https://wsava.org/wp-content/uploads/2020/01/WSAVA-Nutrition-Assessment-Guidelines-2011-JSAP.pdf",
+    "commercial_use": "facts-only"
+  },
+  "AAFP-NUTRITION-2018": {
+    "short": "AAFP 2018",
+    "title": "Feline feeding programs: addressing behavioral needs to improve feline health and wellbeing",
+    "authors": "Sadek T, Hamper B, Horwitz D, et al.",
+    "year": 2018, "type": "獸醫組織共識", "pages": 7,
+    "url": "https://catvets.com/resource/guidelines-practice-guidelines-how-to-feed-how-to-feed-a-cat-consensus-statement/",
+    "commercial_use": "facts-only"
+  },
+  "AAHA-NUTRITION-2021": {
+    "short": "AAHA 2021",
+    "title": "2021 AAHA Nutrition and Weight Management Guidelines for Dogs and Cats",
+    "authors": "Cline MG, Burns KM, Coe JB, et al.",
+    "year": 2021, "type": "獸醫組織指引", "pages": 22,
+    "url": "https://www.aaha.org/wp-content/uploads/globalassets/02-guidelines/2021-nutrition-and-weight-management/resourcepdfs/new-2021-aaha-nutrition-and-weight-management-guidelines-with-ref.pdf",
+    "commercial_use": "facts-only"
+  },
+  "DELGADO-2020-FEEDING-WELLBEING": {
+    "short": "Delgado 2020",
+    "title": "Feeding Cats for Optimal Mental and Behavioral Well-Being",
+    "authors": "Delgado M, Dantas LMS",
+    "year": 2020, "type": "同儕審查回顧論文", "pages": 23,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7415653/",
+    "commercial_use": "facts-only"
+  }
+}
