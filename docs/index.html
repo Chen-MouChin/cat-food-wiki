@@ -21,7 +21,7 @@ h2{font-size:clamp(22px,3.6vw,40px);margin:0;flex:1;line-height:1.3;text-wrap:ba
 .points li{background:var(--card);border:1px solid var(--border);border-left:5px solid var(--primary);border-radius:14px;
 padding:clamp(12px,2vh,20px) 20px;font-size:clamp(17px,2.2vw,26px);line-height:1.55}
 .ref{font-size:.5em;color:var(--primary);margin-left:6px;vertical-align:super;font-weight:700;white-space:nowrap}
-.refs{position:absolute;left:clamp(20px,7vw,110px);right:clamp(20px,7vw,110px);bottom:46px;display:flex;flex-wrap:wrap;gap:6px 12px;font-size:13px;color:var(--muted)}
+.refs{margin-top:auto;padding-top:14px;display:flex;flex-wrap:wrap;gap:6px 12px;font-size:13px;color:var(--muted)}
 .refs a{color:var(--deep);text-decoration:none;background:var(--pale);padding:2px 8px;border-radius:999px}
 .title-slide{align-items:center;justify-content:center;text-align:center}
 .title-slide .cat{width:clamp(120px,18vw,200px)}
@@ -34,12 +34,28 @@ padding:clamp(12px,2vh,20px) 20px;font-size:clamp(17px,2.2vw,26px);line-height:1
 .node:not(:last-child)::after{content:" →";color:var(--gold)}
 .node.a{background:var(--pale)}.node.h{background:#f6ecd2;border-color:var(--gold)}
 .nb{display:inline-block;max-width:100%}
+.quiz{display:grid;gap:14px;max-width:1100px;margin-bottom:12px}
+.qcard{perspective:1400px}
+.qinner{display:grid;transition:transform .5s;transform-style:preserve-3d}
+.qcard.flipped .qinner{transform:rotateY(180deg)}
+.qface{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--card);border:1px solid var(--border);border-left:5px solid var(--primary);border-radius:14px;padding:14px 18px}
+.qback{transform:rotateY(180deg);display:flex;flex-direction:column;gap:6px}
+.qtext{margin:0 0 10px;font-size:clamp(16px,2vw,22px);line-height:1.5}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt,.again{font:inherit;font-size:clamp(15px,1.7vw,19px);min-height:44px;padding:6px 14px;border:1px solid var(--primary);border-radius:999px;background:var(--card);color:var(--deep);cursor:pointer}
+.opt:hover,.opt:focus-visible,.again:hover,.again:focus-visible{background:var(--pale)}
+.again{align-self:flex-start}
+.verdict{margin:0;font-size:clamp(18px,2.2vw,24px);font-weight:700}
+.qcard.right .verdict{color:var(--primary)} .qcard.right .qback{border-left-color:var(--primary);background:var(--pale)}
+.qcard.wrong .verdict{color:#8a5a00} .qcard.wrong .qback{border-left-color:var(--gold);background:#fbf3df}
+.answer,.why{margin:0;font-size:clamp(15px,1.8vw,20px);line-height:1.55}
+@media (prefers-reduced-motion:reduce){.qinner{transition:none}}
 .note{display:none;margin-top:18px;padding:12px 16px;border-radius:12px;background:#f6ecd2;color:var(--text2);font-size:15px;max-width:1100px}
 .show-notes .note{display:block}
 nav{position:fixed;left:0;right:0;bottom:0;height:40px;display:flex;align-items:center;justify-content:center;gap:16px;background:rgba(249,246,240,.92);border-top:1px solid var(--border);z-index:5}
 nav button{border:1px solid var(--primary);background:var(--card);color:var(--deep);border-radius:999px;min-width:44px;height:30px;font-size:16px;cursor:pointer}
 .bar{position:fixed;left:0;top:0;height:4px;background:var(--primary);transition:width .2s;z-index:6}
-@media (max-width:640px){.points li{border-left-width:4px}.refs{position:static;margin-top:18px}.slide{padding-bottom:60px}}
+@media (max-width:640px){.points li{border-left-width:4px}.refs{margin-top:18px}.slide{padding-bottom:60px}}
 @media print{.slide{display:flex!important;position:relative;page-break-after:always;height:100vh}nav,.bar{display:none}}
 </style></head>
 <body><div class="bar"></div><main class="deck"><section class="slide title-slide" data-i="1"><svg class="cat" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -68,7 +84,7 @@ nav button{border:1px solid var(--primary);background:var(--card);color:var(--de
                         <path d="M 22 25 Q 24 23.5 26 25" stroke-width="1.8"/>
                     </g>
                 </g>
-            </svg></header><ul class="points"><li>認識貓：嚴格肉食、常吃、單獨吃</li><li>怎麼選：完整均衡、生命階段、副食和零食</li><li>看標籤：產品名稱、成分表、乾糧和罐頭、碳水</li><li>怎麼餵：一天吃多少、看體態、怎麼餵</li><li>挑品牌：問廠商</li></ul><footer class="refs"><span>依據 Wiki：</span></footer><aside class="note">這一頁是目錄，沒有新的事實。結尾前有三題小測驗。</aside></section><section class="slide" data-i="3"><header><span class="num">3</span><h2><span class="nb">先認識貓：</span><span class="nb">嚴格肉食，</span><span class="nb">喜歡常吃、</span><span class="nb">單獨吃</span></h2><svg class="cat" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            </svg></header><ul class="points"><li>認識貓：嚴格肉食、常吃、單獨吃</li><li>怎麼選：完整均衡、生命階段、副食和零食</li><li>看標籤：產品名稱、成分表、乾糧和罐頭、碳水</li><li>怎麼餵：一天吃多少、看體態、怎麼餵</li><li>挑品牌：問廠商</li></ul><aside class="note">這一頁是目錄，沒有新的事實。結尾前有三題小測驗。</aside></section><section class="slide" data-i="3"><header><span class="num">3</span><h2><span class="nb">先認識貓：</span><span class="nb">嚴格肉食，</span><span class="nb">喜歡常吃、</span><span class="nb">單獨吃</span></h2><svg class="cat" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <g class="anim-peek" style="transform-origin: 24px 30px;">
                     <path d="M 13 36 L 13 28 C 13 24, 14 21, 15 19 L 13 10 L 20 15 C 22.5 14.5, 25.5 14.5, 28 15 L 35 10 L 33 19 C 34 21, 35 24, 35 28 L 35 36" fill="var(--cat-white)"/>
                     <ellipse cx="17.5" cy="25.5" rx="2.2" ry="1.3" fill="var(--cat-blush)" stroke="none"/>
@@ -287,7 +303,7 @@ nav button{border:1px solid var(--primary);background:var(--card);color:var(--de
                 <line x1="39" y1="29" x2="40" y2="29" />
                 <path d="M 17 37 C 17 34.5, 20.5 34.5, 20.5 37" fill="var(--cat-white)"/>
                 <path d="M 27.5 37 C 27.5 34.5, 31 34.5, 31 37" fill="var(--cat-white)"/>
-            </svg></header><ul class="points"><li>美國規則：「含鮪魚的貓糧」和「鮪魚貓糧」，鮪魚至少各要多少？<sup class="ref">C-LBL-03</sup><sup class="ref">C-LBL-01</sup></li><li>罐頭蛋白質 8%、水分 75%；乾糧 27%、水分 10%。換成乾物誰高？<sup class="ref">C-DM-03</sup><sup class="ref">C-DM-06</sup></li><li>零食最多能佔總飲食的多少？<sup class="ref">C-TRT-01</sup></li></ul><footer class="refs"><span>依據 Wiki：</span><a href="https://github.com/Chen-MouChin/cat-food-wiki/blob/main/wiki/sources/FDA-PET-FOOD-LABELS-GENERAL.md" target="_blank" rel="noopener">C-LBL-03｜FDA 標籤 p.1</a><a href="https://github.com/Chen-MouChin/cat-food-wiki/blob/main/wiki/sources/FDA-PET-FOOD-LABELS-GENERAL.md" target="_blank" rel="noopener">C-LBL-01｜FDA 標籤 p.1</a><a href="https://github.com/Chen-MouChin/cat-food-wiki/blob/main/wiki/sources/FDA-PET-FOOD-LABELS-GENERAL.md" target="_blank" rel="noopener">C-DM-03｜FDA 標籤 p.1</a><a href="https://github.com/Chen-MouChin/cat-food-wiki/blob/main/wiki/sources/FDA-PET-FOOD-LABELS-GENERAL.md" target="_blank" rel="noopener">C-DM-06｜FDA 標籤 p.1</a><a href="https://github.com/Chen-MouChin/cat-food-wiki/blob/main/wiki/sources/AAFP-NUTRITION-2018.md" target="_blank" rel="noopener">C-TRT-01｜AAFP 2018 p.2</a></footer><aside class="note">答案：1. 含鮪魚的貓糧只要 3%，鮪魚貓糧要 95%。2. 罐頭 32%、乾糧 30%，罐頭比較高。3. 不超過 10%。</aside></section><section class="slide" data-i="18"><header><span class="num">18</span><h2><span class="nb">總結：</span><span class="nb">買貓糧前的檢查清單</span></h2><svg class="cat" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            </svg></header><div class="quiz"><div class="qcard"><div class="qinner"><div class="qface qfront"><p class="qtext"><b>第 1 題</b>　美國規則：「含鮪魚的貓糧」和「鮪魚貓糧」，鮪魚至少各要多少？<sup class="ref">C-LBL-03</sup><sup class="ref">C-LBL-01</sup></p><div class="opts"><button type="button" class="opt" data-ok="0">A. 兩個都要 95%</button><button type="button" class="opt" data-ok="1">B. 含鮪魚的貓糧 3%，鮪魚貓糧 95%</button><button type="button" class="opt" data-ok="0">C. 含鮪魚的貓糧 25%，鮪魚貓糧 95%</button></div></div><div class="qface qback" aria-live="polite"><p class="verdict"></p><p class="answer">正確答案：B. 含鮪魚的貓糧 3%，鮪魚貓糧 95%</p><p class="why">名稱寫「含」只要 3%；直接叫「鮪魚貓糧」要 95%（不算加工用水）。25% 是「鮪魚晚餐」這類名稱的門檻<sup class="ref">C-LBL-03</sup><sup class="ref">C-LBL-01</sup><sup class="ref">C-LBL-02</sup></p><button type="button" class="again">再答一次</button></div></div></div><div class="qcard"><div class="qinner"><div class="qface qfront"><p class="qtext"><b>第 2 題</b>　罐頭蛋白質 8%、水分 75%；乾糧 27%、水分 10%。換成乾物誰高？<sup class="ref">C-DM-03</sup><sup class="ref">C-DM-06</sup></p><div class="opts"><button type="button" class="opt" data-ok="0">A. 乾糧，因為 27% 比 8% 高</button><button type="button" class="opt" data-ok="1">B. 罐頭，換成乾物是 32% 對 30%</button><button type="button" class="opt" data-ok="0">C. 一樣高</button></div></div><div class="qface qback" aria-live="polite"><p class="verdict"></p><p class="answer">正確答案：B. 罐頭，換成乾物是 32% 對 30%</p><p class="why">罐頭乾物 25%，8 ÷ 25 × 100 = 32%；乾糧乾物 90%，27 ÷ 90 × 100 = 30%<sup class="ref">C-DM-02</sup><sup class="ref">C-DM-03</sup><sup class="ref">C-DM-06</sup></p><button type="button" class="again">再答一次</button></div></div></div><div class="qcard"><div class="qinner"><div class="qface qfront"><p class="qtext"><b>第 3 題</b>　零食最多能佔總飲食的多少？<sup class="ref">C-TRT-01</sup></p><div class="opts"><button type="button" class="opt" data-ok="1">A. 10%</button><button type="button" class="opt" data-ok="0">B. 25%</button><button type="button" class="opt" data-ok="0">C. 50%</button></div></div><div class="qface qback" aria-live="polite"><p class="verdict"></p><p class="answer">正確答案：A. 10%</p><p class="why">零食不超過總飲食的 10%，零食的熱量也要算進每天的份量<sup class="ref">C-TRT-01</sup></p><button type="button" class="again">再答一次</button></div></div></div></div><footer class="refs"><span>依據 Wiki：</span><a href="https://github.com/Chen-MouChin/cat-food-wiki/blob/main/wiki/sources/FDA-PET-FOOD-LABELS-GENERAL.md" target="_blank" rel="noopener">C-LBL-03｜FDA 標籤 p.1</a><a href="https://github.com/Chen-MouChin/cat-food-wiki/blob/main/wiki/sources/FDA-PET-FOOD-LABELS-GENERAL.md" target="_blank" rel="noopener">C-LBL-01｜FDA 標籤 p.1</a><a href="https://github.com/Chen-MouChin/cat-food-wiki/blob/main/wiki/sources/FDA-PET-FOOD-LABELS-GENERAL.md" target="_blank" rel="noopener">C-DM-03｜FDA 標籤 p.1</a><a href="https://github.com/Chen-MouChin/cat-food-wiki/blob/main/wiki/sources/FDA-PET-FOOD-LABELS-GENERAL.md" target="_blank" rel="noopener">C-DM-06｜FDA 標籤 p.1</a><a href="https://github.com/Chen-MouChin/cat-food-wiki/blob/main/wiki/sources/AAFP-NUTRITION-2018.md" target="_blank" rel="noopener">C-TRT-01｜AAFP 2018 p.2</a><a href="https://github.com/Chen-MouChin/cat-food-wiki/blob/main/wiki/sources/FDA-PET-FOOD-LABELS-GENERAL.md" target="_blank" rel="noopener">C-LBL-02｜FDA 標籤 p.1</a><a href="https://github.com/Chen-MouChin/cat-food-wiki/blob/main/wiki/sources/FDA-PET-FOOD-LABELS-GENERAL.md" target="_blank" rel="noopener">C-DM-02｜FDA 標籤 p.1</a></footer><aside class="note">點選項，卡片會翻面顯示答對或答錯和解析；按「再答一次」翻回來。</aside></section><section class="slide" data-i="18"><header><span class="num">18</span><h2><span class="nb">總結：</span><span class="nb">買貓糧前的檢查清單</span></h2><svg class="cat" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <path class="anim-tail" style="transform-origin: 32px 38px;" d="M 32 38 C 40 38, 43 31, 39 26 C 37 24, 35 26, 36 29" />
                 <path d="M 16.5 26 C 13.5 31, 13.5 40, 18 40 L 30 40 C 34.5 40, 34.5 31, 31.5 26" fill="var(--cat-white)"/>
                 <path d="M 19 30 C 18 34, 18 40.8, 21 40.8 C 23.2 40.8, 24 39.5, 24 38 C 24 39.5, 24.8 40.8, 27 40.8 C 30 40.8, 30 34, 29 30" fill="var(--cat-white)"/>
@@ -307,7 +323,14 @@ const S=[...document.querySelectorAll('.slide')],bar=document.querySelector('.ba
 let i=Math.max(0,Math.min(S.length-1,(parseInt(location.hash.slice(1))||1)-1));
 function go(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,k)=>s.classList.toggle('on',k===i));
 bar.style.width=((i+1)/S.length*100)+'%';cnt.textContent=(i+1)+' / '+S.length;history.replaceState(null,'','#'+(i+1));}
-document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(i+1)}
+document.querySelectorAll('.qcard').forEach(c=>{const v=c.querySelector('.verdict');
+c.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const ok=b.dataset.ok==='1';c.classList.remove('right','wrong');
+c.classList.add('flipped',ok?'right':'wrong');v.textContent=(ok?'答對了！':'答錯了')+'　你選的是 '+b.textContent;
+c.querySelector('.qfront').setAttribute('aria-hidden','true');c.querySelector('.qback').removeAttribute('aria-hidden');c.querySelector('.again').focus()});
+c.querySelector('.qback').setAttribute('aria-hidden','true');
+c.querySelector('.again').onclick=()=>{c.classList.remove('flipped');c.querySelector('.qfront').removeAttribute('aria-hidden');
+c.querySelector('.qback').setAttribute('aria-hidden','true');c.querySelector('.opt').focus()}});
+document.addEventListener('keydown',e=>{if(e.target.closest&&e.target.closest('button')&&[' ','Enter'].includes(e.key))return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(i+1)}
 else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(i-1)}else if(e.key==='n'||e.key==='N'){document.body.classList.toggle('show-notes')}});
 document.querySelector('.prev').onclick=()=>go(i-1);document.querySelector('.next').onclick=()=>go(i+1);
 let x0=null;document.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
