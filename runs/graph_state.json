@@ -3,12 +3,12 @@
  "start": "H0",
  "node": "S10",
  "rounds": {
-  "S10->S3": 2,
+  "S10->S3": 3,
   "S4->S3": 1,
   "S5->S3": 1
  },
- "counter": 12,
+ "counter": 15,
  "_new_run": false,
  "waiting": "等 agent 做 S10 獨立審查 agent（照 AGENTS.md 的操作做），做完用 --done S10 \"說明\"",
- "review_file": "runs/review_06.md"
+ "review_file": "runs/review_07.md"
 }

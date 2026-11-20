@@ -26,7 +26,7 @@ h1{{font-size:24px;margin:0 0 6px}} p{{margin:0 0 10px;color:#4a4a4c}}
 </style></head><body><main>
 <h1>貓糧 LLM Wiki 與教學簡報：Loop／Graph</h1>
 <p>由 scripts/run_graph.py 的節點與邊產生；箭頭上的文字是退回的條件，沒有文字的箭頭代表通過。每條回頭的線最多 {max_rounds} 次，超過就交給人決定。</p>
-<p class="legend"><span class="a">程式自動檢查</span><span class="g">AI agent</span><span class="h">人工關卡</span></p>
+<p class="legend"><span class="a">程式自動執行</span><span class="g">AI agent</span><span class="h">人工關卡</span></p>
 <pre class="mermaid">
 {mermaid}
 </pre>
