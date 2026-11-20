@@ -1,6 +1,6 @@
 # 貓糧 LLM Wiki × 教學簡報
 
-主題：**看懂貓糧：怎麼選、怎麼餵**。先把 9 份獸醫指引、產業指引和政府資料 ingest 成 LLM Wiki，再只用這個 Wiki 當知識來源，產生一份給「沒養過貓的人」看的 HTML 教學簡報。
+主題：**看懂貓糧：怎麼選、怎麼餵**。先把 9 份指引、政府資料與回顧論文 ingest 成 LLM Wiki，再只用這個 Wiki 當知識來源，產生一份給「沒養過貓的人」看的 HTML 教學簡報。
 
 - **簡報**：https://chen-mouchin.github.io/cat-food-wiki/
 - **Wiki 首頁**：[wiki/index.md](wiki/index.md)；紀錄：[wiki/log.md](wiki/log.md)
@@ -21,7 +21,7 @@
 
 `scripts/run_graph.py` 照圖走，程式節點自動跑；遇到 AI 節點或人工關卡就停下來等；檢查不通過時，照圖上的線退回。下面的圖由同一支程式產生（`python scripts/run_graph.py --mermaid`）。
 
-### （現在的 graph）
+### 流程圖
 
 圖例：
 - 綠色六角形：程式自動執行。
@@ -103,7 +103,7 @@ flowchart TD
 | S3 ↔ S5 | 中文超出原句（AI 逐條對照） | 對照沒有發現超出 |
 | S6 ↔ S6L | 主題頁有句子沒有主張編號、Wiki 首頁缺頁 | lint 0 FAIL |
 | S6L → S3 | 整理主題頁時發現主張本身有誤 | 回 S3 修好後重走 S4 以下 |
-| S8 ↔ S9 | 沒編號、數字不在主張裡、用了大綱沒列的主張、目錄對不到標題 | check_slides 0 FAIL |
+| S8 ↔ S9 | 沒編號、數字不在主張裡、用了大綱沒列的主張、目錄對不到標題；小測驗每題不是 2～4 個選項、不是恰好 1 個正確答案、解析沒有主張編號，或正確答案與解析的數字不在主張裡 | check_slides 0 FAIL |
 | S8 → … → S10 | 審查有實質問題：簡報措辭 | 審查實質問題 0 |
 | S10 → S3 | 審查有實質問題：Wiki 缺資料 | 補主張後重走 S4 以下 |
 | H3 → S8／S3／S11 | 負責人審核成果不通過 | 負責人判定可以發佈 |
@@ -121,11 +121,11 @@ flowchart TD
 ```bash
 python scripts/run_graph.py --reset H0        # 開始一次執行（先過 H0 框架審核）
 python scripts/run_graph.py                   # 繼續；停在 agent 節點或人工關卡
-python scripts/run_graph.py --done S10 "說明" runs/review_05.md   # agent 做完（S10 附審查檔）
+python scripts/run_graph.py --done S10 "說明" runs/review_XX.md   # agent 做完（S10 附審查檔）
 python scripts/run_graph.py --status          # 目前停在哪裡、每條線走了幾次
 ```
 
-每一步都自動記在 [runs/graph_log.md](runs/graph_log.md)，人工關卡的判定留在 `runs/gates/`。
+每一步都會自動寫進執行紀錄，人工關卡的判定也會一起保存。
 
 ## 怎麼跑
 
@@ -139,11 +139,6 @@ python scripts/run_graph.py      # 照 graph 執行整條流程（見上一節�
 ```
 
 需要 Python 3.10 以上；`extract.py` 另需 PyMuPDF，其他只用標準函式庫。
-
-## 執行紀錄
-
-- [runs/RUN_2026-11-19.md](runs/RUN_2026-11-19.md)：第一次完整執行的每一步、每次檢查的結果和修法。
-- `runs/lint_*.txt`、`runs/check_*.txt`、`runs/review_*.md`：每次檢查的原始輸出。
 
 ## 來源與授權
 

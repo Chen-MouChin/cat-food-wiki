@@ -11,7 +11,7 @@
 ## 主張
 
 - [C-LBL-01] 產品名稱只寫一種食材（例如「鮪魚貓糧」）時，扣掉加工用水，這個食材至少要佔 95% ｜ 「at least 95% of the product must be the named ingredient (beef or tuna, respectively), not counting the water added for processing」 p.1
-- [C-LBL-02] 名稱加上「Dinner」「Formula」這類字時，點名的食材只要佔 25% 以上（不到 95%） ｜ 「If the named ingredients comprise at least 25% of the product (not counting the water for processing), but less than 95%, the name must include a qualifying descriptive term」 p.1
+- [C-LBL-02] 名稱加上「Dinner」「Formula」這類字時，點名的食材只要佔 25% 以上（不到 95%） ｜ 「If the named ingredients comprise at least 25% of the product (not counting the water for processing), but less than 95%, the name must include a qualifying descriptive term, such as “Dinner” as in "Beef Dinner for Dogs." Counting the added water, the named ingredients still must comprise 10% of the product. Many descriptors other than "dinner" are used, however, with "Platter," "Entree," "Nuggets" and "Formula" being a few examples」 p.1
 - [C-LBL-03] 「Tuna Cat Food」至少要含 95% 鮪魚，「Cat Food With Tuna」只要 3% ｜ 「whereas the latter example must contain at least 95% tuna, the first needs only 3%」 p.1
 - [C-LBL-04] 成分表照重量排序，而且是加進去時含水的重量 ｜ 「The weights of ingredients are determined as they are added in the formulation, including their inherent water content」 p.1
 - [C-LBL-06] 鮮肉大約 75% 是水；肉粉在加工時去掉了水和脂肪，水分只有大約 10%，剩下的大多是蛋白質和礦物質 ｜ 「meat is very high in moisture (approximately 75% water). On the other hand, water and fat are removed from meat meal, so it is only 10% moisture (what's left is mostly protein and minerals)」 p.1
