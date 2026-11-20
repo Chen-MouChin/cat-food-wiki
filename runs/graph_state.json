@@ -1,7 +1,7 @@
 {
  "run": "2026-11-20-2",
  "start": "H0",
- "node": "H3",
+ "node": "S13",
  "rounds": {
   "S10->S3": 3,
   "S4->S3": 1,
@@ -10,6 +10,6 @@
  },
  "counter": 23,
  "_new_run": false,
- "waiting": "人工關卡 H3：請填 runs\\gates\\H3_2026-11-20-2.md",
+ "waiting": "等 agent 做 S13 發佈 GitHub Pages（照 AGENTS.md 的操作做），做完用 --done S13 \"說明\"",
  "review_file": "runs/review_10.md"
 }
