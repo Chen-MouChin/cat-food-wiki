@@ -1,0 +1,9 @@
+FAIL C-BCS-07 原句在 p.3，不是 p.2
+FAIL C-BCS-08 原句在 p.3，不是 p.2
+FAIL C-BCS-09 原句在 p.3，不是 p.2
+WARN C-LBL-07 沒有任何主題頁用到（孤兒主張）
+WARN C-LBL-08 沒有任何主題頁用到（孤兒主張）
+WARN C-BCS-07 沒有任何主題頁用到（孤兒主張）
+WARN C-BCS-08 沒有任何主題頁用到（孤兒主張）
+WARN C-BCS-09 沒有任何主題頁用到（孤兒主張）
+主張 66 條，原句比對成功 63 條；FAIL 3，WARN 5

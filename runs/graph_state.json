@@ -1,9 +1,14 @@
 {
  "run": "2026-11-20-2",
  "start": "H0",
- "node": "H0",
- "rounds": {},
- "counter": 0,
- "_new_run": true,
- "waiting": "人工關卡 H0：請填 runs\\gates\\H0_2026-11-20-2.md"
+ "node": "S10",
+ "rounds": {
+  "S10->S3": 1,
+  "S4->S3": 1,
+  "S5->S3": 1
+ },
+ "counter": 9,
+ "_new_run": false,
+ "waiting": "等 agent 做 S10 獨立審查 agent（照 AGENTS.md 的操作做），做完用 --done S10 \"說明\"",
+ "review_file": "runs/review_05.md"
 }

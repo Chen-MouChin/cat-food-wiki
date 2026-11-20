@@ -65,17 +65,19 @@ def appendix(start: int, sources: dict, n_claims: int, n_used: int) -> str:
         for v in sources.values())
     src = (f'<section class="slide" data-i="{start}"><header><span class="num">{start}</span>'
            f'<h2>出處：9 份來源</h2></header><ol class="sources">{rows}</ol></section>')
-    flow = [("人工審核流程框架", "h"), ("取得原文", ""), ("Ingest 寫主張", ""), ("Wiki 檢查", "a"), ("AI 逐條對照", ""),
-            ("整理主題頁", ""), ("查 Wiki 排大綱", ""), ("生成簡報", ""), ("簡報檢查", "a"), ("獨立審查", ""),
-            ("產出與截圖", "a"), ("人工審核成果", "h")]
+    import run_graph
+    kinds = {"auto": "a", "human": "h", "agent": ""}
+    flow = [(name, kinds[kind]) for name, kind in run_graph.NODES.values()]
     chips = "".join(f'<span class="node {k}">{html.escape(x)}</span>' for x, k in flow)
     meta = (f'<section class="slide" data-i="{start + 1}"><header><span class="num">{start + 1}</span>'
             f'<h2>這份簡報怎麼做出來的</h2></header><div class="flow">{chips}</div>'
             f'<ul class="points"><li>Wiki 有 {n_claims} 條主張，每條附英文原句與頁碼，程式回原文逐條比對</li>'
             f'<li>這份簡報引用其中 {n_used} 條；每一點都標了編號，數字必須出現在引用的主張裡</li>'
-            f'<li>綠框是程式檢查、黃框是人工關卡；沒過就照圖退回重寫，每條線最多 3 次</li></ul>'
+            f'<li>綠底是程式自動檢查、黃底是人工關卡（開始前審核流程框架、發佈前審核成果）</li>'
+            f'<li>檢查沒過就照圖退回，每條線最多 3 次；每一步記在 wiki/log.md 和 runs/</li></ul>'
             f'<footer class="refs"><a href="https://github.com/Chen-MouChin/cat-food-wiki" target="_blank" rel="noopener">'
-            f'Wiki 與流程：github.com/Chen-MouChin/cat-food-wiki</a></footer></section>')
+            f'Wiki 與流程：github.com/Chen-MouChin/cat-food-wiki</a>'
+            f'<a href="graph.html" target="_blank" rel="noopener">完整流程圖（含退回條件）</a></footer></section>')
     return src + meta
 
 

@@ -14,6 +14,7 @@
   python scripts/run_graph.py                      從目前節點繼續跑，直到遇到 agent 或人工關卡
   python scripts/run_graph.py --done S8 "說明"       標記 agent 節點完成，繼續往下跑
   python scripts/run_graph.py --done S10 "說明" runs/review_05.md   S10 要附審查檔，程式依實質／輕微分流
+  python scripts/run_graph.py --fail S5 "中文超出原句" "C-XXX：原因"   agent 節點發現問題，照圖退回
   python scripts/run_graph.py --goto S8 "理由"       人工指定下一步（超過輪數上限時用）
   python scripts/run_graph.py --status             看目前停在哪裡
   python scripts/run_graph.py --mermaid            印出流程圖（README 用）
@@ -356,6 +357,13 @@ def main():
         else:
             log(st, node, "完成", nxt(node), note)
             st["node"] = nxt(node)
+    elif a[:1] == ["--fail"]:   # agent 節點自己發現問題：照圖上有條件的線退回
+        node, cond, detail = a[1], a[2], (a[3] if len(a) > 3 else "")
+        if st.get("node") != node:
+            raise SystemExit(f"目前在 {st.get('node')}，不是 {node}")
+        st["waiting"] = None
+        task(node, nxt(node, cond), [detail])
+        st["node"] = go_back(st, node, cond, detail)
     elif a[:1] == ["--goto"]:
         st["waiting"] = None
         log(st, st["node"], "人工指定下一步", a[1], a[2] if len(a) > 2 else "")

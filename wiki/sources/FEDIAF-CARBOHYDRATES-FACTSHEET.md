@@ -18,4 +18,4 @@
 - [C-BEH-01] 貓是嚴格肉食動物，在野外單獨狩獵、吃小型獵物 ｜ 「Cats are strict carnivores and, in their natural habitat, as solitary hunters, they consume small prey」 p.8
 - [C-CARB-04] 貓和狗都沒有碳水化合物的絕對需求，可以用胺基酸自己合成葡萄糖 ｜ 「Neither cats nor dogs have an absolute requirement for carbohydrates; they need glucose but as carnivores are able to synthesize glucose de novo, from amino acids」 p.8
 - [C-CARB-05] 碳水只要經過適當加工、份量適中，貓就能拿來當能量 ｜ 「they are able to utilize them as an energy source as long as they are adequately processed and present in moderate amounts」 p.9
-- [C-CARB-06] 目前的證據指出，肥胖的風險因子是久坐、住室內、結紮、吃高脂高熱量的食物，而不是碳水含量 ｜ 「a sedentary lifestyle, living indoors, neutering, and consuming foods that are high in fat and energy have all been identified as risk factors for obesity rather than the carbohydrate content of the diet」 p.9
+- [C-CARB-06] 依目前發表的證據，看起來肥胖的風險因子是久坐、住室內、結紮、吃高脂高熱量的食物，而不是碳水含量 ｜ 「Based on currently published evidence, it appears that a sedentary lifestyle, living indoors, neutering, and consuming foods that are high in fat and energy have all been identified as risk factors for obesity rather than the carbohydrate content of the diet」 p.9

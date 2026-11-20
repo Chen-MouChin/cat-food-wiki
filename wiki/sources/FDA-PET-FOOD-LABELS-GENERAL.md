@@ -12,9 +12,11 @@
 
 - [C-LBL-01] 產品名稱只寫一種食材（例如「鮪魚貓糧」）時，扣掉加工用水，這個食材至少要佔 95% ｜ 「at least 95% of the product must be the named ingredient (beef or tuna, respectively), not counting the water added for processing」 p.1
 - [C-LBL-02] 名稱加上「Dinner」「Formula」這類字時，點名的食材只要佔 25% 以上（不到 95%） ｜ 「If the named ingredients comprise at least 25% of the product (not counting the water for processing), but less than 95%, the name must include a qualifying descriptive term」 p.1
-- [C-LBL-03] 「Cat Food With Tuna」只要含 3% 鮪魚，「Tuna Cat Food」卻要 95%，名稱差一個字，比例差很多 ｜ 「whereas the latter example must contain at least 95% tuna, the first needs only 3%」 p.1
+- [C-LBL-03] 「Tuna Cat Food」至少要含 95% 鮪魚，「Cat Food With Tuna」只要 3% ｜ 「whereas the latter example must contain at least 95% tuna, the first needs only 3%」 p.1
 - [C-LBL-04] 成分表照重量排序，而且是加進去時含水的重量 ｜ 「The weights of ingredients are determined as they are added in the formulation, including their inherent water content」 p.1
-- [C-LBL-06] 鮮肉大約 75% 是水；肉粉是去掉水和脂肪的肉，水分只有大約 10%，所以只看成分表的排序，比不出哪個肉比較多 ｜ 「meat is very high in moisture (approximately 75% water). On the other hand, water and fat are removed from meat meal, so it is only 10% moisture」 p.1
+- [C-LBL-06] 鮮肉大約 75% 是水；肉粉在加工時去掉了水和脂肪，水分只有大約 10%，剩下的大多是蛋白質和礦物質 ｜ 「meat is very high in moisture (approximately 75% water). On the other hand, water and fat are removed from meat meal, so it is only 10% moisture (what's left is mostly protein and minerals)」 p.1
+- [C-LBL-07] 在 FDA 的例子裡，把兩種產品都換算成乾物比較，可以看出第二個產品來自肉粉的動物性蛋白質，比第一個產品來自鮮肉的還多，雖然成分表的排序看起來相反 ｜ 「If we could compare both products on a dry matter basis (mathematically "remove" the water from both ingredients), one could see that the second product had more animal-source protein from meat meal than the first product had from meat, even though the ingredient list suggests otherwise」 p.1
+- [C-LBL-08] 這不代表第二個產品的「肉」比較多；肉粉本身不算是肉，因為大部分脂肪和水已經在提煉時去掉 ｜ 「That is not to say that the second product has more "meat" than the first, or in fact, any meat at all. Meat meal is not meat per se, since most of the fat and water have been removed by rendering」 p.1
 - [C-DM-01] 乾物百分比＝100% 減去標籤上的水分百分比 ｜ 「The percentage of dry matter of the product is equal to 100% minus the percentage of moisture guaranteed on the label」 p.1
 - [C-DM-02] 換成乾物基礎：保證值 ÷ 乾物百分比 × 100 ｜ 「the percent guarantee should be divided by the percentage of the dry matter, then multiplied by 100」 p.1
 - [C-DM-03] 例子：罐頭標 8% 蛋白質、75% 水分（乾物 25%），乾糧標 27% 蛋白質、10% 水分（乾物 90%） ｜ 「a canned food guarantees 8% crude protein and 75% moisture (or 25% dry matter), while a dry food contains 27% crude protein and 10% moisture (or 90% dry matter)」 p.1

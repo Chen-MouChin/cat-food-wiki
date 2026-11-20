@@ -13,7 +13,7 @@
 - [C-BEH-02] 貓喜歡經常吃、而且單獨吃 ｜ 「Cats are solitary predators that consume small prey, and they prefer to eat often and alone」 p.1
 - [C-TRT-01] 零食永遠不要超過總飲食的 10%，而且零食的熱量要算進每天的份量 ｜ 「Treats should never amount to more than 10% of the total diet, and treat calories must be included when calculating daily food allowances」 p.2
 - [C-FEED-02] 益智餵食器和把飼料藏在家裡各處，可以增加活動、提供身心刺激 ｜ 「Using puzzle feeders and hiding kibbles around the home increases activity, provides mental and physical stimulation」 p.2
-- [C-FEED-01] 每天的份量要分成多次小餐，在 24 小時內餵完，可以的話用益智餵食器 ｜ 「The cat’s daily food allowance should be split into multiple small meals and fed throughout the 24 h period, using puzzle feeders when possible」 p.3
+- [C-FEED-01] 每天的份量要分成多次小餐，分散在一整天 24 小時裡餵，可以的話用益智餵食器 ｜ 「The cat’s daily food allowance should be split into multiple small meals and fed throughout the 24 h period, using puzzle feeders when possible」 p.3
 - [C-FEED-05] 份量可以用數位電子秤（公克）量 ｜ 「help determine the best way to measure food portions, either by using a digital gram kitchen scale」 p.3
 - [C-KCAL-06] 大多數家貓結紮又不太活動，熱量可以先從每公斤體重每天 40–66 大卡開始算 ｜ 「use 40–66 kcal/kg body weight/day as a starting point for determining calorie intake」 p.3
 - [C-BCS-02] 真正需要的熱量，是能讓貓維持理想體態的量（9 分制的 4–5 分） ｜ 「The true caloric requirement is the amount needed to maintain a cat in optimal body condition (2.5–3/5 or 4–5/9 on a body condition scoring [BCS] scale)」 p.3

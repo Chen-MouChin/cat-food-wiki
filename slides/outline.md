@@ -1,6 +1,6 @@
 # 簡報大綱：看懂貓糧：怎麼選、怎麼餵
 
-聽眾：沒養過貓、不懂貓糧的人。每頁回答一個問題；「可用主張」是用 `scripts/query_wiki.py` 查 Wiki 的結果（完整查詢紀錄：runs/query_01_outline.txt）。
+聽眾：沒養過貓、不懂貓糧的人。每頁回答一個問題；「可用主張」是用 `scripts/query_wiki.py` 查 Wiki 的結果（完整查詢紀錄：runs/query_01_outline.txt；2026-11-20 依審查第 5 輪補 C-LBL-07、08 與 C-BCS-07～09）。
 簡報原稿（deck.md）每一頁只能引用這一頁列出的主張，`check_slides.py` 會檢查。
 
 | 頁 | 要回答的問題 | 查詢關鍵字 | 可用主張 |
@@ -12,14 +12,14 @@
 | 5 | 「生命階段」標示是什麼意思？ | 生命階段 熟齡 | C-ADQ-02, C-ADQ-06, C-ADQ-03 |
 | 6 | 副食、零食可以吃多少？ | 副食 零食 10% | C-ADQ-04, C-TRT-01, C-TRT-02, C-TRT-03 |
 | 7 | 產品名稱代表什麼？ | 名稱 95% Dinner 3% | C-LBL-01, C-LBL-02, C-LBL-03 |
-| 8 | 成分表和包裝上的形容詞可信嗎？ | 成分表 holistic | C-LBL-04, C-LBL-06, C-LBL-05 |
+| 8 | 成分表和包裝上的形容詞可信嗎？ | 成分表 肉粉 乾物 holistic | C-LBL-04, C-LBL-06, C-LBL-07, C-LBL-08, C-LBL-05 |
 | 9 | 乾糧和罐頭的營養怎麼比？ | 乾物 水分 | C-DM-05, C-DM-04, C-DM-01, C-DM-02 |
 | 10 | 來算一題：誰的蛋白質比較高？ | 罐頭 32% | C-DM-03, C-DM-06 |
 | 11 | 標籤上的碳水怎麼看？ | 碳水 NFE | C-CARB-01, C-CARB-02, C-CARB-03 |
 | 12 | 貓需要碳水嗎？會因為碳水變胖嗎？ | 碳水 肥胖 乳糖 | C-CARB-04, C-CARB-05, C-CARB-06, C-CARB-08 |
 | 13 | 一天要吃多少？ | 熱量 大卡 | C-KCAL-03, C-KCAL-04, C-KCAL-06, C-KCAL-05, C-KCAL-07, C-KCAL-08, C-KCAL-09 |
-| 14 | 怎麼知道餵得剛好？ | 體態 評分 | C-BCS-02, C-BCS-01, C-BCS-06, C-BCS-05 |
+| 14 | 怎麼知道餵得剛好？ | 體態 評分 脂肪 | C-BCS-07, C-BCS-08, C-BCS-09, C-BCS-02, C-BCS-01, C-BCS-06, C-BCS-05 |
 | 15 | 怎麼餵比較好？ | 少量多餐 益智 餵食點 秤 | C-FEED-07, C-FEED-01, C-FEED-02, C-FEED-08, C-FEED-03, C-FEED-04 |
-| 16 | 挑品牌要問什麼？ | 品牌 營養學 品管 | C-BRD-01, C-BRD-02, C-BRD-03, C-BRD-04 |
-| 17 | 小測驗：檢查有沒有學會 | 罐頭 32%；名稱 95% Dinner 3%；副食 零食 10% | C-LBL-03, C-DM-03, C-DM-06, C-TRT-01 |
+| 16 | 挑品牌要問什麼？（WSAVA 列的問題，不只這幾題） | 品牌 營養學 品管 | C-BRD-01, C-BRD-02, C-BRD-03, C-BRD-04 |
+| 17 | 小測驗：檢查有沒有學會 | 罐頭 32%；名稱 95% Dinner 3%；副食 零食 10% | C-LBL-03, C-LBL-01, C-DM-03, C-DM-06, C-TRT-01 |
 | 18 | 總結：買貓糧前的檢查清單 | （回顧前面各頁） | C-ADQ-07, C-ADQ-02, C-DM-02, C-BCS-06, C-FEED-01, C-TRT-01 |
