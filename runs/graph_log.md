@@ -85,3 +85,4 @@
 | 2026-11-20 13:18 | S11 產出 HTML | auto | OK | S12 | 完成：docs/index.html，20 頁（含出處、流程兩頁附錄），引用 61 條主張 |
 | 2026-11-20 13:19 | S12 截圖 電腦/手機 | auto | OK | H3 | 23 張截圖存在 runs/shots/2026-11-20-2/ |
 | 2026-11-20 13:28 | H3 人工審核最終成果 | human | OK | S13 | runs/gates/H3_2026-11-20-2.md |
+| 2026-11-20 13:29 | S13 發佈 GitHub Pages | agent | 完成 | 結束 | 推上 GitHub，Pages 發佈完成；線上簡報（3 題翻面卡）、graph.png、RUN 總表都 200 |
