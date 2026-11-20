@@ -67,7 +67,7 @@ EDGES = [  # (from, to, 條件)；條件空白 = 通過
     ("S0", "S1", ""), ("S1", "S2", ""), ("S2", "S3", ""), ("S3", "S4", ""),
     ("S4", "S3", "原句對不到／數字不一致"), ("S4", "S5", ""),
     ("S5", "S3", "中文超出原句"), ("S5", "S6", ""),
-    ("S6", "S6L", ""), ("S6L", "S6", "句子沒有編號"), ("S6L", "S7", ""),
+    ("S6", "S6L", ""), ("S6L", "S6", "主題頁沒編號／目錄缺頁"), ("S6L", "S3", "主張有誤"), ("S6L", "S7", ""),
     ("S7", "S8", ""), ("S8", "S9", ""), ("S9", "S8", "沒編號／數字不在主張／超出大綱"), ("S9", "S10", ""),
     ("S10", "S8", "實質問題：簡報措辭"), ("S10", "S3", "實質問題：Wiki 缺資料"), ("S10", "S11", ""),
     ("S11", "S12", ""), ("S12", "H3", ""),
@@ -156,17 +156,15 @@ def run_auto(st: dict, node: str) -> str:
         n, out = capture(lint_wiki.run, True)
         (RUNS / "graph" / f"{i:02d}_{node}.txt").write_text(out, encoding="utf-8")
         fails = json.loads((RUNS / "last_lint.json").read_text(encoding="utf-8"))["fails"]
-        concept = [x for x in fails if "wiki/concepts" in x]
+        concept = [x for x in fails if "wiki/concepts" in x or "index.md" in x]
         claim = [x for x in fails if x not in concept]
         if claim:
             task(node, "S3", claim)
-            if node == "S4":
-                return go_back(st, node, "原句對不到／數字不一致", "；".join(claim))
-            log(st, node, "FAIL：主張", "S3", "；".join(claim))
-            return "S3"
+            cond = "原句對不到／數字不一致" if node == "S4" else "主張有誤"
+            return go_back(st, node, cond, "；".join(claim))
         if node == "S6L" and concept:
             task(node, "S6", concept)
-            return go_back(st, node, "句子沒有編號", "；".join(concept))
+            return go_back(st, node, "主題頁沒編號／目錄缺頁", "；".join(concept))
         log(st, node, "OK", nxt(node), last_line(out))
         return nxt(node)
     if node == "S9":
