@@ -7,6 +7,7 @@
   4. 每頁最多 4 點、每點最多 60 字（不算編號）；標題要有。
   5. 用語：不用「研究顯示」「專家建議」「治療」「毛孩」這類字。
   6. 封面（layout: title）、目錄（layout: agenda）可以沒有主張，但目錄只能列後面各頁的主題。
+  7. 小測驗（layout: quiz）：每題 2～4 個選項、恰好 1 個正確、要有解析；正確選項和解析的數字要在解析引用的主張裡。
 
 用法：python scripts/check_slides.py   有 FAIL 回傳 1
 """
@@ -28,14 +29,23 @@ MAX_POINTS, MAX_CHARS = 4, 60
 def parse_deck(text: str) -> list:
     slides = []
     for block in re.split(r"^---\s*$", text, flags=re.M):
-        s = {"title": "", "layout": "", "points": [], "note": ""}
+        s = {"title": "", "layout": "", "points": [], "note": "", "quiz": []}
         for line in block.strip().splitlines():
+            m = re.match(r"^\s+- (?:\[(x| )\] )?(.*)$", line)
+            if m and s["quiz"]:          # 小測驗：題目底下縮排的選項與解析
+                if m.group(2).startswith("解析："):
+                    s["quiz"][-1]["why"] = m.group(2)[3:].strip()
+                elif m.group(1) is not None:
+                    s["quiz"][-1]["options"].append((m.group(2).strip(), m.group(1) == "x"))
+                continue
             if line.startswith("## "):
                 s["title"] = line[3:].strip()
             elif line.startswith("layout:"):
                 s["layout"] = line.split(":", 1)[1].strip()
             elif line.startswith("- "):
                 s["points"].append(line[2:].strip())
+                if s["layout"] == "quiz":
+                    s["quiz"].append({"q": line[2:].strip(), "options": [], "why": ""})
             elif line.startswith("note:"):
                 s["note"] = line.split(":", 1)[1].strip()
         if s["title"]:
@@ -90,6 +100,30 @@ def run():
             for b in BANNED:
                 if b in text:
                     fails.append(f"{where} 第 {j} 點用了「{b}」")
+        # 小測驗：每題 2～4 個選項、恰好 1 個正確、要有解析；正確選項與解析的數字要在解析引用的主張裡
+        # （錯誤選項是誘答，可以有主張以外的數字，但解析要說明正確答案）
+        for j, q in enumerate(s.get("quiz", []), 1):
+            if not 2 <= len(q["options"]) <= 4:
+                fails.append(f"{where} 第 {j} 題有 {len(q['options'])} 個選項，要 2～4 個")
+            if sum(1 for _, ok in q["options"] if ok) != 1:
+                fails.append(f"{where} 第 {j} 題要恰好 1 個正確選項")
+            wrefs = REF.findall(q["why"])
+            if not wrefs:
+                fails.append(f"{where} 第 {j} 題的解析沒有主張編號")
+                continue
+            for r in wrefs:
+                used.add(r)
+                if r not in claims:
+                    fails.append(f"{where} 第 {j} 題解析引用了不存在的 {r}")
+                elif r not in outline.get(i, set()):
+                    fails.append(f"{where} 第 {j} 題解析用了 {r}，但大綱這一頁沒有列")
+            allowed = {float(n) for r in wrefs if r in claims for n in numbers(claims[r]["zh"])}
+            right = " ".join(t for t, ok in q["options"] if ok)
+            extra = [n for n in numbers(REF.sub("", q["why"]) + " " + right) if float(n) not in allowed]
+            if extra:
+                fails.append(f"{where} 第 {j} 題正確選項或解析的數字 {extra} 不在解析引用的主張裡")
+            if len(REF.sub("", q["why"])) > 90:
+                fails.append(f"{where} 第 {j} 題解析太長（上限 90 字）")
     # 目錄的每一項，都要對得到後面某一頁的標題關鍵字（避免目錄偷偷加內容）
     titles = " ".join(x["title"] for x in slides)
     for s in slides:

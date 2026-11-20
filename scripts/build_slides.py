@@ -41,6 +41,8 @@ def slide_html(i: int, s: dict, claims: dict, sources: dict) -> str:
         chips = "".join(f'<sup class="ref">{c}</sup>' for c in ids)
         items.append(f"<li>{text}{chips}</li>")
         refs += [c for c in ids if c not in refs]
+    for q in s.get("quiz", []):
+        refs += [c for c in check_slides.REF.findall(q["why"]) if c not in refs]
     foot = "".join(
         f'<a href="{REPO}/wiki/sources/{claims[c]["source"]}.md" target="_blank" rel="noopener">'
         f'{c}｜{html.escape(sources[claims[c]["source"]]["short"])} p.{claims[c]["page"]}</a>'
@@ -52,10 +54,31 @@ def slide_html(i: int, s: dict, claims: dict, sources: dict) -> str:
                 f'<ul class="sub">{"".join(items)}</ul>{note}'
                 f'<p class="hint">← → 換頁　N 講者備註</p></section>')
     cat = cat_svg(CATS[i % len(CATS)])
+    if s["layout"] == "quiz":
+        return (f'<section class="slide" data-i="{i}"><header><span class="num">{i}</span>'
+                f'<h2>{wrap(s["title"])}</h2>{cat}</header>'
+                f'<div class="quiz">{"".join(quiz_card(k, q) for k, q in enumerate(s["quiz"], 1))}</div>'
+                f'<footer class="refs"><span>依據 Wiki：</span>{foot}</footer>{note}</section>')
+    foot_html = f'<footer class="refs"><span>依據 Wiki：</span>{foot}</footer>' if foot else ""
     return (f'<section class="slide" data-i="{i}"><header><span class="num">{i}</span>'
             f'<h2>{wrap(s["title"])}</h2>{cat}</header>'
             f'<ul class="points">{"".join(items)}</ul>'
-            f'<footer class="refs"><span>依據 Wiki：</span>{foot}</footer>{note}</section>')
+            f'{foot_html}{note}</section>')
+
+
+def quiz_card(k: int, q: dict) -> str:
+    """小測驗的一題：正面是題目和選項，點了翻到背面，顯示答對或答錯、正確答案和解析。"""
+    strip = lambda t: html.escape(check_slides.REF.sub("", t).strip())
+    sup = lambda t: "".join(f'<sup class="ref">{c}</sup>' for c in check_slides.REF.findall(t))
+    opts = "".join(f'<button type="button" class="opt" data-ok="{int(ok)}">{chr(64 + n)}. {html.escape(t)}</button>'
+                   for n, (t, ok) in enumerate(q["options"], 1))
+    right = next(f"{chr(64 + n)}. {html.escape(t)}" for n, (t, ok) in enumerate(q["options"], 1) if ok)
+    return (f'<div class="qcard"><div class="qinner">'
+            f'<div class="qface qfront"><p class="qtext"><b>第 {k} 題</b>　{strip(q["q"])}{sup(q["q"])}</p>'
+            f'<div class="opts">{opts}</div></div>'
+            f'<div class="qface qback" aria-live="polite"><p class="verdict"></p>'
+            f'<p class="answer">正確答案：{right}</p><p class="why">{strip(q["why"])}{sup(q["why"])}</p>'
+            f'<button type="button" class="again">再答一次</button></div></div></div>')
 
 
 def appendix(start: int, sources: dict, n_claims: int, n_used: int) -> str:
@@ -98,7 +121,7 @@ h2{font-size:clamp(22px,3.6vw,40px);margin:0;flex:1;line-height:1.3;text-wrap:ba
 .points li{background:var(--card);border:1px solid var(--border);border-left:5px solid var(--primary);border-radius:14px;
 padding:clamp(12px,2vh,20px) 20px;font-size:clamp(17px,2.2vw,26px);line-height:1.55}
 .ref{font-size:.5em;color:var(--primary);margin-left:6px;vertical-align:super;font-weight:700;white-space:nowrap}
-.refs{position:absolute;left:clamp(20px,7vw,110px);right:clamp(20px,7vw,110px);bottom:46px;display:flex;flex-wrap:wrap;gap:6px 12px;font-size:13px;color:var(--muted)}
+.refs{margin-top:auto;padding-top:14px;display:flex;flex-wrap:wrap;gap:6px 12px;font-size:13px;color:var(--muted)}
 .refs a{color:var(--deep);text-decoration:none;background:var(--pale);padding:2px 8px;border-radius:999px}
 .title-slide{align-items:center;justify-content:center;text-align:center}
 .title-slide .cat{width:clamp(120px,18vw,200px)}
@@ -111,12 +134,28 @@ padding:clamp(12px,2vh,20px) 20px;font-size:clamp(17px,2.2vw,26px);line-height:1
 .node:not(:last-child)::after{content:" →";color:var(--gold)}
 .node.a{background:var(--pale)}.node.h{background:#f6ecd2;border-color:var(--gold)}
 .nb{display:inline-block;max-width:100%}
+.quiz{display:grid;gap:14px;max-width:1100px;margin-bottom:12px}
+.qcard{perspective:1400px}
+.qinner{display:grid;transition:transform .5s;transform-style:preserve-3d}
+.qcard.flipped .qinner{transform:rotateY(180deg)}
+.qface{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--card);border:1px solid var(--border);border-left:5px solid var(--primary);border-radius:14px;padding:14px 18px}
+.qback{transform:rotateY(180deg);display:flex;flex-direction:column;gap:6px}
+.qtext{margin:0 0 10px;font-size:clamp(16px,2vw,22px);line-height:1.5}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt,.again{font:inherit;font-size:clamp(15px,1.7vw,19px);min-height:44px;padding:6px 14px;border:1px solid var(--primary);border-radius:999px;background:var(--card);color:var(--deep);cursor:pointer}
+.opt:hover,.opt:focus-visible,.again:hover,.again:focus-visible{background:var(--pale)}
+.again{align-self:flex-start}
+.verdict{margin:0;font-size:clamp(18px,2.2vw,24px);font-weight:700}
+.qcard.right .verdict{color:var(--primary)} .qcard.right .qback{border-left-color:var(--primary);background:var(--pale)}
+.qcard.wrong .verdict{color:#8a5a00} .qcard.wrong .qback{border-left-color:var(--gold);background:#fbf3df}
+.answer,.why{margin:0;font-size:clamp(15px,1.8vw,20px);line-height:1.55}
+@media (prefers-reduced-motion:reduce){.qinner{transition:none}}
 .note{display:none;margin-top:18px;padding:12px 16px;border-radius:12px;background:#f6ecd2;color:var(--text2);font-size:15px;max-width:1100px}
 .show-notes .note{display:block}
 nav{position:fixed;left:0;right:0;bottom:0;height:40px;display:flex;align-items:center;justify-content:center;gap:16px;background:rgba(249,246,240,.92);border-top:1px solid var(--border);z-index:5}
 nav button{border:1px solid var(--primary);background:var(--card);color:var(--deep);border-radius:999px;min-width:44px;height:30px;font-size:16px;cursor:pointer}
 .bar{position:fixed;left:0;top:0;height:4px;background:var(--primary);transition:width .2s;z-index:6}
-@media (max-width:640px){.points li{border-left-width:4px}.refs{position:static;margin-top:18px}.slide{padding-bottom:60px}}
+@media (max-width:640px){.points li{border-left-width:4px}.refs{margin-top:18px}.slide{padding-bottom:60px}}
 @media print{.slide{display:flex!important;position:relative;page-break-after:always;height:100vh}nav,.bar{display:none}}
 """
 
@@ -125,7 +164,14 @@ const S=[...document.querySelectorAll('.slide')],bar=document.querySelector('.ba
 let i=Math.max(0,Math.min(S.length-1,(parseInt(location.hash.slice(1))||1)-1));
 function go(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,k)=>s.classList.toggle('on',k===i));
 bar.style.width=((i+1)/S.length*100)+'%';cnt.textContent=(i+1)+' / '+S.length;history.replaceState(null,'','#'+(i+1));}
-document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(i+1)}
+document.querySelectorAll('.qcard').forEach(c=>{const v=c.querySelector('.verdict');
+c.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const ok=b.dataset.ok==='1';c.classList.remove('right','wrong');
+c.classList.add('flipped',ok?'right':'wrong');v.textContent=(ok?'答對了！':'答錯了')+'　你選的是 '+b.textContent;
+c.querySelector('.qfront').setAttribute('aria-hidden','true');c.querySelector('.qback').removeAttribute('aria-hidden');c.querySelector('.again').focus()});
+c.querySelector('.qback').setAttribute('aria-hidden','true');
+c.querySelector('.again').onclick=()=>{c.classList.remove('flipped');c.querySelector('.qfront').removeAttribute('aria-hidden');
+c.querySelector('.qback').setAttribute('aria-hidden','true');c.querySelector('.opt').focus()}});
+document.addEventListener('keydown',e=>{if(e.target.closest&&e.target.closest('button')&&[' ','Enter'].includes(e.key))return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(i+1)}
 else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(i-1)}else if(e.key==='n'||e.key==='N'){document.body.classList.toggle('show-notes')}});
 document.querySelector('.prev').onclick=()=>go(i-1);document.querySelector('.next').onclick=()=>go(i+1);
 let x0=null;document.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});

@@ -21,5 +21,5 @@
 | 14 | 怎麼知道餵得剛好？ | 體態 評分 脂肪 | C-BCS-07, C-BCS-08, C-BCS-09, C-BCS-02, C-BCS-01, C-BCS-06, C-BCS-05 |
 | 15 | 怎麼餵比較好？ | 少量多餐 益智 餵食點 秤 | C-FEED-07, C-FEED-01, C-FEED-02, C-FEED-09, C-FEED-08, C-FEED-03, C-FEED-04 |
 | 16 | 挑品牌要問什麼？（WSAVA 列的問題，不只這幾題） | 品牌 營養學 品管 | C-BRD-01, C-BRD-02, C-BRD-03, C-BRD-04 |
-| 17 | 小測驗：檢查有沒有學會 | 罐頭 32%；名稱 95% Dinner 3%；副食 零食 10% | C-LBL-03, C-LBL-01, C-DM-03, C-DM-06, C-TRT-01 |
+| 17 | 小測驗：檢查有沒有學會 | 罐頭 32%；名稱 95% Dinner 3%；副食 零食 10% | C-LBL-03, C-LBL-01, C-LBL-02, C-DM-02, C-DM-03, C-DM-06, C-TRT-01 |
 | 18 | 總結：買貓糧前的檢查清單 | （回顧前面各頁） | C-ADQ-07, C-ADQ-02, C-DM-07, C-DM-02, C-BCS-06, C-FEED-01, C-TRT-01 |
