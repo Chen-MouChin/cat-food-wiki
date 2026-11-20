@@ -65,9 +65,9 @@ def appendix(start: int, sources: dict, n_claims: int, n_used: int) -> str:
         for v in sources.values())
     src = (f'<section class="slide" data-i="{start}"><header><span class="num">{start}</span>'
            f'<h2>出處：9 份來源</h2></header><ol class="sources">{rows}</ol></section>')
-    flow = [("討論範圍", "h"), ("取得原文", ""), ("Ingest 寫主張", ""), ("Wiki 檢查", "a"), ("人工抽查主張", "h"),
+    flow = [("人工審核流程框架", "h"), ("取得原文", ""), ("Ingest 寫主張", ""), ("Wiki 檢查", "a"), ("AI 逐條對照", ""),
             ("整理主題頁", ""), ("查 Wiki 排大綱", ""), ("生成簡報", ""), ("簡報檢查", "a"), ("獨立審查", ""),
-            ("人工裁決意見", "h"), ("產出與截圖", "a"), ("人工確認發佈", "h")]
+            ("產出與截圖", "a"), ("人工審核成果", "h")]
     chips = "".join(f'<span class="node {k}">{html.escape(x)}</span>' for x, k in flow)
     meta = (f'<section class="slide" data-i="{start + 1}"><header><span class="num">{start + 1}</span>'
             f'<h2>這份簡報怎麼做出來的</h2></header><div class="flow">{chips}</div>'
