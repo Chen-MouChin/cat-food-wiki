@@ -45,7 +45,7 @@ def main():
     html.write_text(PAGE.format(mermaid=run_graph.mermaid(), max_rounds=run_graph.MAX_ROUNDS), encoding="utf-8")
     png = DOCS / "graph.png"
     subprocess.run([run_graph.EDGE, "--headless=new", "--hide-scrollbars", "--virtual-time-budget=8000",
-                    "--force-device-scale-factor=1.5", "--window-size=1080,1460", f"--screenshot={png}", html.as_uri()],
+                    "--force-device-scale-factor=1.5", "--window-size=1200,1720", f"--screenshot={png}", html.as_uri()],
                    capture_output=True)
     print(f"完成：{html.relative_to(ROOT)}、{png.relative_to(ROOT)}")
 
