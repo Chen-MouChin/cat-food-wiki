@@ -1,0 +1,22 @@
+{
+ "run": "2026-11-20-1",
+ "start": "S4",
+ "node": "H1",
+ "rounds": {},
+ "counter": 1,
+ "_new_run": false,
+ "approved_claims": {},
+ "waiting": "人工關卡 H1：請填 runs\\gates\\H1_2026-11-20-1.md",
+ "h1_pick": {
+  "C-BEH-02": "91f0023a0d",
+  "C-FEED-06": "d4f7e3dfb4",
+  "C-FEED-08": "018720398f",
+  "C-LBL-06": "d0db59c9a7",
+  "C-CARB-02": "cac52e2a03",
+  "C-KCAL-07": "6518090843",
+  "C-KCAL-04": "67e2f6ec31",
+  "C-BCS-05": "937964da40",
+  "C-BRD-02": "8ed8da35fe",
+  "C-DM-04": "3bad6e62e3"
+ }
+}

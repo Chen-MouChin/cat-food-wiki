@@ -29,6 +29,7 @@ scripts/
   query_wiki.py      查 Wiki：用關鍵字找主張，寫大綱用
   check_slides.py    檢查簡報：每點都有主張、數字對得上主張、用語、每頁長度
   build_slides.py    deck.md → docs/index.html（先跑 lint_wiki 和 check_slides，有 FAIL 就不產出）
+  run_graph.py       照 graph 執行整條流程：程式節點自動跑，agent 節點與人工關卡停下來等，失敗依規則退回
 runs/                每次實際執行的紀錄（哪一步出錯、怎麼修）；RUN_<日期>.md 是總表
 assets/cats/         簡報用的線條貓插畫（貓健康站自有素材）
 docs/                產出的簡報，GitHub Pages 從這裡發佈
@@ -57,7 +58,8 @@ docs/                產出的簡報，GitHub Pages 從這裡發佈
 | **Query** | 為簡報每一頁寫一個問題，查 Wiki，把可用的主張編號寫進 `slides/outline.md` | 每頁至少一個主張 |
 | **生成簡報** | 照大綱寫 `slides/deck.md`，每一點結尾標 `{C-…}` | `python scripts/check_slides.py` |
 | **獨立審查** | 請一個沒看過寫作過程的 agent，逐點比對簡報和引用的主張，找「意思超出主張」 | 審查結果存成 `runs/review_*.md`，修到沒有實質問題 |
-| **產出** | `python scripts/build_slides.py` | 兩支檢查都要 0 FAIL；再看電腦版和手機版截圖 |
+| **人工關卡** | H1 抽查主張、H2 裁決審查意見、H3 確認發佈：`run_graph.py` 在 `runs/gates/` 產生檔案，負責人逐項填「判定：」 | agent 不可以替負責人填判定；判定 NG 照圖退回 |
+| **產出** | `python scripts/build_slides.py` | 兩支檢查都要 0 FAIL；再看電腦版和手機版截圖，H3 通過才發佈 |
 
 檢查沒過的處理：
 - 原句對不到：回到原文重抄那一條，不可以改成意思相近的句子。

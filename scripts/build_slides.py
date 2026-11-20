@@ -65,14 +65,15 @@ def appendix(start: int, sources: dict, n_claims: int, n_used: int) -> str:
         for v in sources.values())
     src = (f'<section class="slide" data-i="{start}"><header><span class="num">{start}</span>'
            f'<h2>出處：9 份來源</h2></header><ol class="sources">{rows}</ol></section>')
-    flow = ["討論範圍", "取得原文", "抽成逐頁文字", "Ingest 寫主張", "Wiki 檢查", "整理主題頁",
-            "查 Wiki 排大綱", "生成簡報", "簡報檢查", "獨立審查", "產出 HTML"]
-    chips = "".join(f'<span class="node">{html.escape(x)}</span>' for x in flow)
+    flow = [("討論範圍", "h"), ("取得原文", ""), ("Ingest 寫主張", ""), ("Wiki 檢查", "a"), ("人工抽查主張", "h"),
+            ("整理主題頁", ""), ("查 Wiki 排大綱", ""), ("生成簡報", ""), ("簡報檢查", "a"), ("獨立審查", ""),
+            ("人工裁決意見", "h"), ("產出與截圖", "a"), ("人工確認發佈", "h")]
+    chips = "".join(f'<span class="node {k}">{html.escape(x)}</span>' for x, k in flow)
     meta = (f'<section class="slide" data-i="{start + 1}"><header><span class="num">{start + 1}</span>'
             f'<h2>這份簡報怎麼做出來的</h2></header><div class="flow">{chips}</div>'
             f'<ul class="points"><li>Wiki 有 {n_claims} 條主張，每條附英文原句與頁碼，程式回原文逐條比對</li>'
             f'<li>這份簡報引用其中 {n_used} 條；每一點都標了編號，數字必須出現在引用的主張裡</li>'
-            f'<li>檢查沒過就退回重寫那一條或那一頁，紀錄在 Wiki 的 log.md</li></ul>'
+            f'<li>綠框是程式檢查、黃框是人工關卡；沒過就照圖退回重寫，每條線最多 3 次</li></ul>'
             f'<footer class="refs"><a href="https://github.com/Chen-MouChin/cat-food-wiki" target="_blank" rel="noopener">'
             f'Wiki 與流程：github.com/Chen-MouChin/cat-food-wiki</a></footer></section>')
     return src + meta
@@ -106,6 +107,7 @@ padding:clamp(12px,2vh,20px) 20px;font-size:clamp(17px,2.2vw,26px);line-height:1
 .flow{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
 .node{background:var(--card);border:1px solid var(--primary);color:var(--deep);border-radius:999px;padding:6px 14px;font-size:clamp(13px,1.5vw,17px)}
 .node:not(:last-child)::after{content:" →";color:var(--gold)}
+.node.a{background:var(--pale)}.node.h{background:#f6ecd2;border-color:var(--gold)}
 .nb{display:inline-block;max-width:100%}
 .note{display:none;margin-top:18px;padding:12px 16px;border-radius:12px;background:#f6ecd2;color:var(--text2);font-size:15px;max-width:1100px}
 .show-notes .note{display:block}
