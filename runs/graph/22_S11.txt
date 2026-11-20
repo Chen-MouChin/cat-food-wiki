@@ -1,0 +1,7 @@
+== lint_wiki
+WARN C-BCS-03 沒有任何主題頁用到（孤兒主張）
+WARN C-BCS-04 沒有任何主題頁用到（孤兒主張）
+主張 71 條，原句比對成功 71 條；FAIL 0，WARN 2
+== check_slides
+簡報 18 頁，引用 61 條主張（Wiki 共 71 條）；FAIL 0
+完成：docs/index.html，20 頁（含出處、流程兩頁附錄），引用 61 條主張
