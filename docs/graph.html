@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>貓糧 LLM Wiki：Loop／Graph</title>
+<style>
+body{margin:0;background:#f9f6f0;color:#1d1d1f;font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif}
+main{max-width:1180px;margin:0 auto;padding:20px}
+h1{font-size:24px;margin:0 0 6px} p{margin:0 0 10px;color:#4a4a4c}
+.legend span{display:inline-block;border:1px solid;border-radius:6px;padding:2px 10px;margin-right:8px;font-size:14px}
+.a{background:#e7efe9;border-color:#3b6a50} .g{background:#fff;border-color:#888} .h{background:#f6ecd2;border-color:#b8860b}
+.mermaid{background:#fff;border:1px solid #e8e4db;border-radius:12px;padding:12px}
+</style></head><body><main>
+<h1>貓糧 LLM Wiki 與教學簡報：Loop／Graph</h1>
+<p>由 scripts/run_graph.py 的節點與邊產生；箭頭上的文字是退回的條件，沒有文字的箭頭代表通過。每條回頭的線最多 3 次，超過就交給人決定。</p>
+<p class="legend"><span class="a">程式自動檢查</span><span class="g">AI agent</span><span class="h">人工關卡</span></p>
+<pre class="mermaid">
+flowchart TD
+  H0[/"H0 人工審核流程框架"/]
+  S0["S0 討論範圍與來源"]
+  S1["S1 取得原文"]
+  S2{{"S2 抽逐頁文字"}}
+  S3["S3 Ingest 寫主張"]
+  S4{{"S4 Wiki 檢查 lint"}}
+  S5["S5 AI 逐條對照意思"]
+  S6["S6 整理主題頁"]
+  S6L{{"S6L 主題頁檢查 lint"}}
+  S7["S7 查 Wiki 排大綱"]
+  S8["S8 生成簡報"]
+  S9{{"S9 簡報檢查"}}
+  S10["S10 獨立審查 agent"]
+  S11{{"S11 產出 HTML"}}
+  S12{{"S12 截圖 電腦/手機"}}
+  H3[/"H3 人工審核最終成果"/]
+  S13["S13 發佈 GitHub Pages"]
+  H0 --> S0
+  S0 --> S1
+  S1 --> S2
+  S2 --> S3
+  S3 --> S4
+  S4 -- 原句對不到／數字不一致 --> S3
+  S4 --> S5
+  S5 -- 中文超出原句 --> S3
+  S5 --> S6
+  S6 --> S6L
+  S6L -- 句子沒有編號 --> S6
+  S6L --> S7
+  S7 --> S8
+  S8 --> S9
+  S9 -- 沒編號／數字不在主張／超出大綱 --> S8
+  S9 --> S10
+  S10 -- 實質問題：簡報措辭 --> S8
+  S10 -- 實質問題：Wiki 缺資料 --> S3
+  S10 --> S11
+  S11 --> S12
+  S12 --> H3
+  H3 -- 不通過：內容 --> S8
+  H3 -- 不通過：Wiki --> S3
+  H3 -- 不通過：版面 --> S11
+  H3 --> S13
+  classDef auto fill:#e7efe9,stroke:#3b6a50
+  classDef human fill:#f6ecd2,stroke:#b8860b
+  class S2,S4,S6L,S9,S11,S12 auto
+  class H0,H3 human
+</pre>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js" integrity="sha384-WmdflGW9aGfoBdHc4rRyWzYuAjEmDwMdGdiPNacbwfGKxBW/SO6guzuQ76qjnSlr" crossorigin="anonymous"></script>
+<script>mermaid.initialize({startOnLoad:true,theme:"base",flowchart:{curve:"basis"},
+themeVariables:{fontFamily:"Microsoft JhengHei, Noto Sans TC, sans-serif",fontSize:"15px",primaryColor:"#ffffff",primaryBorderColor:"#888",lineColor:"#2a4c39"}});</script>
+</body></html>
