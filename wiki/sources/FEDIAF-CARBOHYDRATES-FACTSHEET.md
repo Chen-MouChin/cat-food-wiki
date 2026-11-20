@@ -13,6 +13,8 @@
 - [C-CARB-07] 可消化的碳水化合物每公克大約提供 3.5 到 4 大卡 ｜ 「Dietary digestible carbohydrates provide approximately 3.5 to 4 kcal metabolizable energy (ME) per gram」 p.6
 - [C-CARB-08] 成貓的乳糖酶活性很低，沒辦法好好消化乳糖 ｜ 「Adult dogs and cats have very low lactase activity and therefore cannot properly digest lactose」 p.6
 - [C-CARB-01] 標籤上沒有可消化碳水（糖和澱粉）這一項 ｜ 「There is no measure of digestible carbohydrates (sugars and starch) reported on the label」 p.8
+- [C-CARB-09] 依歐盟法規，貓狗食品的標籤要在「分析成分」標出幾項營養素的百分比 ｜ 「According to the EU law the following nutrients (provided as percentages, i.e. grams of nutrient per 100 grams of food) must be declared under Analytical Constituents of cat and dog food」 p.8
+- [C-CARB-10] 灰分（crude ash）也叫焚燒殘留物或無機物 ｜ 「Crude ash (or Incinerated residue, or Inorganic matter)」 p.8
 - [C-CARB-02] 碳水可以用差值估算：100 －（粗蛋白＋粗脂肪＋粗纖維＋灰分＋水分），叫做無氮抽出物（NFE） ｜ 「% NFE = 100 - (Crude protein + Crude fat + Crude fibre + Ash + Moisture)」 p.8
 - [C-CARB-03] 因為粗纖維會低估，用 NFE 算出來的碳水通常偏高 ｜ 「Crude fibre analysis largely underestimates the actual content of dietary fibre and does not provide any information regarding physicochemical or biological properties. As a consequence, NFE usually overestimates the content of digestible carbohydrates」 p.8
 - [C-BEH-01] 貓是嚴格肉食動物，在野外單獨狩獵、吃小型獵物 ｜ 「Cats are strict carnivores and, in their natural habitat, as solitary hunters, they consume small prey」 p.8

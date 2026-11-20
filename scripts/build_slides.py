@@ -73,7 +73,7 @@ def appendix(start: int, sources: dict, n_claims: int, n_used: int) -> str:
             f'<h2>這份簡報怎麼做出來的</h2></header><div class="flow">{chips}</div>'
             f'<ul class="points"><li>Wiki 有 {n_claims} 條主張，每條附英文原句與頁碼，程式回原文逐條比對</li>'
             f'<li>這份簡報引用其中 {n_used} 條；每一點都標了編號，數字必須出現在引用的主張裡</li>'
-            f'<li>綠底是程式自動檢查、黃底是人工關卡（開始前審核流程框架、發佈前審核成果）</li>'
+            f'<li>綠底由程式自動執行（檢查、產出、截圖），白底由 AI 執行，黃底是人工關卡（開始前審核流程框架、發佈前審核成果）</li>'
             f'<li>檢查沒過就照圖退回，每條線最多 3 次；每一步記在 wiki/log.md 和 runs/</li></ul>'
             f'<footer class="refs"><a href="https://github.com/Chen-MouChin/cat-food-wiki" target="_blank" rel="noopener">'
             f'Wiki 與流程：github.com/Chen-MouChin/cat-food-wiki</a>'
