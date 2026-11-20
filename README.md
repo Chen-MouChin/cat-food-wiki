@@ -19,18 +19,9 @@
 
 ## Loop／Graph
 
-這張圖可以實際執行：`scripts/run_graph.py` 照圖走，程式節點自動跑；遇到 AI 節點或人工關卡就停下來等；檢查不通過時，照圖上的線退回。下面的圖由同一支程式產生（`python scripts/run_graph.py --mermaid`），圖和程式不會對不上。
+`scripts/run_graph.py` 照圖走，程式節點自動跑；遇到 AI 節點或人工關卡就停下來等；檢查不通過時，照圖上的線退回。下面的圖由同一支程式產生（`python scripts/run_graph.py --mermaid`）。
 
-### 修改前（第一次執行前的設計）
-
-```mermaid
-flowchart LR
-  A[Ingest] --> B{lint} --> C[生成簡報] --> D{簡報檢查} --> E{產出}
-  B -- FAIL --> A
-  D -- FAIL --> C
-```
-
-### 修改後（現在的 graph）
+### （現在的 graph）
 
 圖例：
 - 綠色六角形：程式自動執行。
@@ -154,4 +145,4 @@ python scripts/run_graph.py      # 照 graph 執行整條流程（見上一節�
 
 ## 來源與授權
 
-9 份來源列在 [data/sources.json](data/sources.json)。原文有著作權，repo 只放出處與短句引用，不放 PDF 和全文。線條貓插畫為貓健康站自有素材。開發協作：Claude Code（Anthropic）。內容為衛教資訊，不取代獸醫師的建議。
+9 份來源列在 [data/sources.json](data/sources.json)。原文有著作權，repo 只放出處與短句引用，不放 PDF 和全文。線條貓插畫為貓健康站自有素材。開發協作：Claude Code（Anthropic）。內容為衛教資訊。
